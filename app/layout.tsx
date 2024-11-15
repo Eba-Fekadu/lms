@@ -3,8 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import {
   ClerkProvider,
-  UserButton
- 
 } from '@clerk/nextjs'
 
 
@@ -30,15 +28,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+    afterSignOutUrl="/"
+    >
     <html lang="en">
     
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="flex justify-between">
+        {/* <header className="flex justify-between">
         <UserButton showName />
-      </header>
+      </header> */}
         {children}
       </body>
     </html>
